@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>關鍵字查詢</title>
+    <style>
+        h1{
+            color:lightblue;
+            display:flex;
+            justify-content: center;
+            margin-top:40px;
+        }
+        .a{
+            position:fixed;
+            right:30px;
+            bottom:10px;
+        }
+        li>a{
+            display:block;
+            width:90vw;
+            white-space: nowrap; /* 強制不換行 */
+            overflow: hidden;    /* 隱藏超出部分 */
+            text-overflow: ellipsis; /* 顯示省略號 (...) */
+        }
+        h3{
+            margin-left:30px;
+        }
+        .title{
+            margin-top:40px;
+            display:flex;
+            height:50px;
+            justify-content:center;
+            gap:20px;
+        }
+        img{
+            max-width:100%;
+            margin-top:20px;
+            margin-bottom:-10px;;
+        }
+        .list{
+            background-color:lightblue;
+            border:3px solid black;
+            border-radius:10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="title">
+        <h1>CHAT  BOT</h1>
+        <img src="/static/bot.png">
+    </div>
+    <h3>搜尋到{{sum}}筆資料</h3>
+    <div class="list">
+        <ul id="list"></ul>
+    </div>
+    <a href={{link}} class="a">返回</a>
+    <script>
+        list={{list|tojson}};
+        num={{num|tojson}};
+        l=document.querySelector('#list');
+        for(let i in list){
+            let a=document.createElement('a');
+            let n=document.createElement('li');
+            a.href=`/query?num=${num[i]}`;
+            a.innerText=`#${num[i]} ${list[i]}`;
+            a.style.display="block";
+            n.appendChild(a);
+            l.appendChild(n);
+        }
+    </script>
+</body>
+</html>

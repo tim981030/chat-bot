@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHAT BOT</title>
+    <style>
+        h1{
+            color:lightblue;
+            display:flex;
+            justify-content: center;
+        }
+        .in{
+            display:flex;
+            margin-top:60px;
+            justify-content:center;
+            justify-content:space-around;
+        }
+        .title{
+            margin-top:40px;
+            display:flex;
+            height:50px;
+            justify-content:center;
+            gap:20px;
+        }
+        img{
+            max-width:100%;
+            margin-top:20px;
+            margin-bottom:-10px;;
+        }
+    </style>
+</head>
+<body>
+    <div class="title">
+        <h1>CHAT  BOT</h1>
+        <img src="/static/bot.png">
+    </div>
+    <div class="in">
+        <form method="POST" action="/question">
+            <h3>問問題</h3>
+            <input type="text" name="input" placeholder="輸入問題">
+            <button type="submit">傳送</button>
+        </form>
+        <form method="POST" action="/query">
+            <h3>查詢歷史紀錄</h3>
+            <input type="text" name="query" placeholder="輸入問題編號或關鍵字">
+            <button type="submit">傳送</button>
+        </form>
+    </div>
+</body>
+</html>
