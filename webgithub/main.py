@@ -6,7 +6,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__) #建立一個應用 (app)
 
-my_instruction=f"不要使用 Markdown 格式。"
+my_instruction=f"不要使用 Markdown 格式。使用繁體中文回答問題，除非使用者輸入他國語言再以該國語言回答"
 
 load_dotenv()
 api_key = os.getenv("GEMINI_API_KEY")
@@ -83,3 +83,4 @@ if __name__ == "__main__":
     app.run(host="0.0.0.0",debug=True,port=10030)
 
    
+
